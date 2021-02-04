@@ -43,6 +43,10 @@ public class Chromedriver {
 		String occupation = driver.findElement(By.cssSelector("div.wwUB2c")).getText();
 		System.out.println(occupation);
 		
+		// getting description
+		String description = driver.findElement(By.xpath("//div[@class='kno-rdesc']")).getText();
+		System.out.println(description);
+		
 		
 		// goto another page and then go back to previous page
 //		driver.get("https://www.masa.tw/");
