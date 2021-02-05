@@ -1,5 +1,8 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class Safaridriver {
 
@@ -8,8 +11,25 @@ public class Safaridriver {
 		System.setProperty("webdriver.safari.driver", "//usr//bin//safaridriver");
 		WebDriver driver = new SafariDriver();
 		
-		driver.get("https://www.google.com");
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 		System.out.println(driver.getTitle());
+		
+		//dropdown with <select> tag (aka static dropdown)
+		WebElement staticDropdown = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));
+		Select dropdown = new Select(staticDropdown);
+		
+		// if static dropdown, we can select dropdown by index
+		dropdown.selectByIndex(3);
+		
+		// we can select dropdown by visible text
+		dropdown.selectByVisibleText("AED");
+		
+		// we can select dropdown by value attribute
+		dropdown.selectByValue("INR");
+	
+		// to varify if a dropdown is selected correctly, to the following and get text
+		String selectedDropdown = dropdown.getFirstSelectedOption().getText();
+		System.out.println(selectedDropdown);
 		
 		driver.quit();
 	}
