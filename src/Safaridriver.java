@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Safaridriver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// testing on Safari now
 		System.setProperty("webdriver.safari.driver", "//usr//bin//safaridriver");
 		WebDriver driver = new SafariDriver();
@@ -30,6 +30,19 @@ public class Safaridriver {
 		// to varify if a dropdown is selected correctly, to the following and get text
 		String selectedDropdown = dropdown.getFirstSelectedOption().getText();
 		System.out.println(selectedDropdown);
+		
+		driver.findElement(By.id("divpaxinfo")).click();
+		Thread.sleep(2000L); // not a good practice, but leave it for now. 
+		
+		String passengerNum = driver.findElement(By.id("divpaxinfo")).getText();
+		System.out.println(passengerNum);
+		
+		for (int i = 1; i < 5; i++) {
+			driver.findElement(By.id("hrefIncAdt")).click();
+		};
+		
+		String passengerNum1 = driver.findElement(By.id("divpaxinfo")).getText();
+		System.out.println(passengerNum1);
 		
 		driver.quit();
 	}
