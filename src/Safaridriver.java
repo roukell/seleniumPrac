@@ -32,7 +32,7 @@ public class Safaridriver {
 		System.out.println(selectedDropdown);
 		
 		driver.findElement(By.id("divpaxinfo")).click();
-		Thread.sleep(2000L); // not a good practice, but leave it for now. 
+		Thread.sleep(2000); // not a good practice, but leave it for now. 
 		
 		String passengerNum = driver.findElement(By.id("divpaxinfo")).getText();
 		System.out.println(passengerNum);
